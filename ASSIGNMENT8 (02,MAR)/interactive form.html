@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: #ffffff;
+      padding: 30px;
+      width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #1a6bb5;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 9px;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-bottom: 10px;
+      display: none;
+    }
+
+    .success-msg {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      padding: 12px;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #1a6bb5;
+      color: white;
+      font-size: 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #145a9e;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Registration Form</h2>
+
+    <div class="success-msg" id="successMsg">
+      ✅ Form Submitted Successfully!
+    </div>
+
+    <!-- Name -->
+    <label>Full Name</label>
+    <input type="text" id="name" placeholder="Enter your name">
+    <span class="error" id="nameError">Name is required.</span>
+
+    <!-- Email -->
+    <label>Email</label>
+    <input type="text" id="email" placeholder="Enter your email">
+    <span class="error" id="emailError">Enter a valid email.</span>
+
+    <!-- Phone -->
+    <label>Phone Number</label>
+    <input type="text" id="phone" placeholder="Enter 10 digit number">
+    <span class="error" id="phoneError">Enter a valid 10 digit phone number.</span>
+
+    <!-- Age -->
+    <label>Age</label>
+    <input type="text" id="age" placeholder="Enter your age">
+    <span class="error" id="ageError">Age must be between 1 and 100.</span>
+
+    <!-- Password -->
+    <label>Password</label>
+    <input type="password" id="password" placeholder="Min 6 characters">
+    <span class="error" id="passwordError">Password must be at least 6 characters.</span>
+
+    <!-- Submit -->
+    <button onclick="validateForm()">Submit</button>
+  </div>
+
+  <script>
+    function validateForm() {
+
+      // Hide all errors and success
+      document.getElementById("nameError").style.display     = "none";
+      document.getElementById("emailError").style.display    = "none";
+      document.getElementById("phoneError").style.display    = "none";
+      document.getElementById("ageError").style.display      = "none";
+      document.getElementById("passwordError").style.display = "none";
+      document.getElementById("successMsg").style.display    = "none";
+
+      var name     = document.getElementById("name").value.trim();
+      var email    = document.getElementById("email").value.trim();
+      var phone    = document.getElementById("phone").value.trim();
+      var age      = document.getElementById("age").value.trim();
+      var password = document.getElementById("password").value.trim();
+
+      var isValid = true;
+
+      // Validate Name
+      if (name === "") {
+        document.getElementById("nameError").style.display = "block";
+        isValid = false;
+      }
+
+      // Validate Email
+      if (email === "" || email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+        document.getElementById("emailError").style.display = "block";
+        isValid = false;
+      }
+
+      // Validate Phone
+      if (phone === "" || phone.length !== 10 || isNaN(phone)) {
+        document.getElementById("phoneError").style.display = "block";
+        isValid = false;
+      }
+
+      // Validate Age
+      if (age === "" || isNaN(age) || age < 1 || age > 100) {
+        document.getElementById("ageError").style.display = "block";
+        isValid = false;
+      }
+
+      // Validate Password
+      if (password === "" || password.length < 6) {
+        document.getElementById("passwordError").style.display = "block";
+        isValid = false;
+      }
+
+      // Show success if all valid
+      if (isValid) {
+        document.getElementById("successMsg").style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>

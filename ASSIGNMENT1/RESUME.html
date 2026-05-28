@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manoj Kumar B – Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --ink: #070606;
+      --accent: #c94f2c;
+      --muted: #7a6f62;
+      --card: #fffdf8;
+      --border: #d9cfc0;
+      --tag-bg: #ede7da;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      max-width: 860px;
+      margin: 48px auto;
+      padding: 0 24px 80px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── HEADER ── */
+    header {
+      border-top: 4px solid var(--accent);
+      padding-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+
+    .header-left h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.6rem, 6vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .header-left h1 span {
+      color: var(--accent);
+    }
+
+    .tagline {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 300;
+      max-width: 420px;
+    }
+
+    .contacts {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .contacts a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .contacts a:hover { color: var(--accent); }
+
+    .contacts a .icon {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ── SECTION ── */
+    section {
+      margin-bottom: 44px;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── SUMMARY ── */
+    .summary-text {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--ink);
+      max-width: 680px;
+      line-height: 1.8;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .edu-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 12px;
+      align-items: start;
+    }
+
+    .edu-degree {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .edu-school {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .edu-meta {
+      text-align: right;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+    }
+
+    .edu-year { color: var(--muted); }
+    .edu-score { color: var(--accent); font-weight: 500; margin-top: 2px; }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+
+    .skill-group {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 16px 18px;
+    }
+
+    .skill-group-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--ink);
+      font-size: 0.8rem;
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0 16px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .exp-role {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .exp-org {
+      color: var(--accent);
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+    }
+
+    .exp-meta {
+      text-align: right;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      padding: 0;
+    }
+
+    .exp-bullets li {
+      padding-left: 14px;
+      position: relative;
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .exp-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 20px 24px;
+      position: relative;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .project-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+    }
+
+    .project-stack {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      background: var(--tag-bg);
+      padding: 3px 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .project-desc {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project-desc li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 3px;
+    }
+
+    .project-desc li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .project-link:hover { border-color: var(--accent); }
+
+    /* ── CERTIFICATES ── */
+    .cert-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .cert-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .cert-bullet {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .date-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      background: var(--tag-bg);
+      color: var(--muted);
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 580px) {
+      header { grid-template-columns: 1fr; }
+      .contacts { text-align: left; }
+      .contacts a { justify-content: flex-start; }
+      .edu-card { grid-template-columns: 1fr; }
+      .edu-meta { text-align: left; }
+      .exp-item { grid-template-columns: 1fr; }
+      .exp-meta { text-align: left; }
+      .project-top { flex-direction: column; }
+      footer { flex-direction: column; gap: 8px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <h1>Manoj Kumar <span>B</span></h1>
+      <p class="tagline">Computer Science Engineering Student · ML + Web Developer · Problem Solver</p>
+    </div>
+    <div class="contacts">
+      <a href="mailto:manojkumarb9606@gmail.com">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+       manojkumarb9606@gmail.com
+      </a>
+      <a href="tel:+919606560930">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M6.6 10.8a15.7 15.7 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.57 3.57 1 1 0 01-.25 1L6.6 10.8z"/></svg>
+        +91 9606560930
+      </a>
+      <a href="https://www.linkedin.com/in/manoj-kumar-949457250" target="_blank">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 013.37-1.85c3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77A1.76 1.76 0 000 1.75v20.5C0 23.21.79 24 1.77 24h20.46A1.77 1.77 0 0024 22.25V1.75A1.77 1.77 0 0022.23 0z"/></svg>
+        linkedin.com/in/manoj-kumar-949457250
+      </a>
+      <a href="https://github.com/Manu1714" target="_blank">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 .3A12 12 0 000 12.3c0 5.3 3.44 9.8 8.2 11.4.6.1.82-.26.82-.57v-2.2c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.33-1.77-1.33-1.77-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 016 0c2.28-1.55 3.29-1.23 3.29-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.9 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0024 12.3 12 12 0 0012 .3z"/></svg>
+       github.com/Manu1714
+      </a>
+    </div>
+  </header>
+
+  <!-- SUMMARY -->
+  <section>
+    <div class="section-label">Profile</div>
+    <p class="summary-text">
+      Curious and motivated Computer Science Engineering student passionate about innovation and real-world problem-solving. Experienced in developing projects that integrate Machine Learning with Web Development. Enthusiastic about teamwork, continuous learning, and building meaningful technological solutions.
+    </p>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <div class="section-label">Education</div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div>
+          <div class="edu-degree">B.E. in Computer Science and Engineering</div>
+          <div class="edu-school">T John Institute of Technology, Bangalore</div>
+        </div>
+        <div class="edu-meta">
+          <div class="edu-year">2022 – 2026</div>
+          <div class="edu-score">CGPA: 7.70</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div>
+          <div class="edu-degree">Pre-University (PCMB)</div>
+          <div class="edu-school">vishwa joythe pu college,siruguppa</div>
+        </div>
+        <div class="edu-meta">
+          <div class="edu-year">2021</div>
+          <div class="edu-score">74%</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div>
+          <div class="edu-degree">Secondary Education (SSLC)</div>
+          <div class="edu-school">SES English Medium High School, siruguppa</div>
+        </div>
+        <div class="edu-meta">
+          <div class="edu-year">2020</div>
+          <div class="edu-score">77%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <div class="section-label">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Programming Languages</div>
+        <div class="tags">
+          <span class="tag">C</span>
+          <span class="tag">C++</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Web Technologies</div>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">React.js</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Model Deployment</div>
+        <div class="tags">
+          <span class="tag">Streamlit</span>
+          <span class="tag">Netlify</span>
+          <span class="tag">Render</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <div class="section-label">Experience</div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Machine Learning Intern</div>
+        <div class="exp-org">SkillCraft Technology</div>
+        <ul class="exp-bullets">
+          <li>Worked on machine learning projects involving data preprocessing, model training, and evaluation.</li>
+          <li>Collaborated with team members to improve model performance and deployment strategies.</li>
+          <li>Received recognition and a letter of recommendation for outstanding performance.</li>
+        </ul>
+      </div>
+      <div class="exp-meta">1 Month</div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Innovation &amp; Design Thinking Program</div>
+        <div class="exp-org">ComedKares Innovation Hub</div>
+        <ul class="exp-bullets">
+          <li>Completed a three-month program focused on creative problem-solving, teamwork, and user-centered innovation.</li>
+          <li>Applied design thinking methodologies to develop innovative real-world solutions.</li>
+        </ul>
+      </div>
+      <div class="exp-meta">3 Months</div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section>
+    <div class="section-label">Academic Projects</div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">Multiple Disease Prediction System</div>
+          <span class="project-stack">Python · Streamlit · ML</span>
+        </div>
+        <ul class="project-desc">
+          <li>Web application predicting Diabetes, Heart Disease, and Parkinson's using machine learning models.</li>
+          <li>Designed a user-friendly Streamlit interface with real-time prediction results.</li>
+        </ul>
+        <a class="project-link" href="#">↗ Live Demo</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">Route Optimization for Highway Construction</div>
+          <span class="project-stack">Satellite Images · Deep Learning</span>
+        </div>
+        <ul class="project-desc">
+          <li>Deep learning model analyzing satellite imagery to suggest optimal highway routes.</li>
+          <li>Minimized construction costs and land acquisition conflicts through efficient pathway identification.</li>
+        </ul>
+        <a class="project-link" href="#">↗ Live Demo</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">Crop Recommendation System</div>
+          <span class="project-stack">Python · ML</span>
+        </div>
+        <ul class="project-desc">
+          <li>Model to recommend suitable crops based on soil nutrients and environmental parameters.</li>
+          <li>Enhanced prediction accuracy through feature engineering and model optimization.</li>
+        </ul>
+        <a class="project-link" href="#">↗ Live Demo</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section>
+    <div class="section-label">Certificates</div>
+    <ul class="cert-list">
+      <li>
+        <span class="cert-bullet"></span>
+        <span>Applied Artificial Intelligence: Practical Implementations – <strong>TechSaksham</strong> (Microsoft &amp; SAP, 2024–25)</span>
+      </li>
+      <li>
+        <span class="cert-bullet"></span>
+        <span>Innovation and Design Thinking – <strong>ComedKares Innovation Hub</strong></span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>Manoj Kumar B · B.E. CSE · T John Institute of Technology</span>
+    <span class="date-badge">7 Feb 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>

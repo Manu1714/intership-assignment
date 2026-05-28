@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Hunt - Manoj Kumar B</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #000;
+      margin: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1a6bb5;
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+
+    .info {
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      background-color: #dce8f5;
+      padding: 6px 10px;
+      border-left: 5px solid #1a6bb5;
+      font-size: 16px;
+      margin-top: 30px;
+    }
+
+    h3 {
+      color: #1a4a80;
+      margin-top: 16px;
+      font-size: 15px;
+    }
+
+    p, li {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #1a6bb5;
+      color: white;
+      padding: 8px;
+      text-align: left;
+    }
+
+    td {
+      border: 1px solid #ccc;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f0f6ff;
+    }
+
+    hr {
+      margin: 30px 0;
+      border: 1px solid #ccc;
+    }
+
+    /* ── SKETCH ── */
+    .sketch {
+      border: 2px solid #1a6bb5;
+      background-color: #fff;
+      padding: 16px;
+      margin-top: 14px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .sketch .box {
+      border: 1px solid #333;
+      padding: 6px 10px;
+      margin: 4px 0;
+      background-color: #f7faff;
+    }
+
+    .sketch .box.header  { background-color: #dce8f5; border-color: #1a6bb5; font-weight: bold; }
+    .sketch .box.nav     { background-color: #e8f5e9; border-color: #2e7d32; }
+    .sketch .box.hero    { background-color: #fff3e0; border-color: #e65100; }
+    .sketch .box.section { background-color: #f3e5f5; border-color: #6a1b9a; }
+    .sketch .box.card    { background-color: #fce4ec; border-color: #c62828; display:inline-block; width:28%; margin-right:2%; vertical-align:top; }
+    .sketch .box.footer  { background-color: #eceff1; border-color: #455a64; }
+
+    .sketch .row {
+      display: flex;
+      gap: 10px;
+      margin: 4px 0;
+    }
+
+    .sketch .row .box {
+      flex: 1;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+      border-top: 1px solid #ccc;
+      padding-top: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Assignment - Component Hunt</h1>
+  <p class="info">Student: Manoj Kumar B &nbsp;|&nbsp; Date: 05/03/2026</p>
+
+  <hr>
+
+  <!-- PART 1 -->
+  <h2>1. What is a Component?</h2>
+  <p>
+    A <strong>component</strong> is a reusable, independent building block of a webpage.
+    Every website is made up of multiple components such as Navbar, Hero Section, Cards, Footer, etc.
+    Breaking a website into components helps developers build, manage, and reuse parts easily.
+  </p>
+
+  <!-- PART 2 -->
+  <h2>2. Website Chosen: Amazon.in</h2>
+  <p>
+    Amazon is one of the most popular e-commerce websites in the world.
+    It has a rich UI with many reusable components.
+  </p>
+
+  <!-- PART 3 -->
+  <h2>3. Components Identified</h2>
+
+  <table>
+    <tr>
+      <th>No.</th>
+      <th>Component Name</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Header / Top Bar</td>
+      <td>Logo, search bar, sign-in button, cart icon</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Navigation Bar</td>
+      <td>Category links like Electronics, Fashion, Home, etc.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Hero / Banner Section</td>
+      <td>Large sliding image banners with offers and deals</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Product Card</td>
+      <td>Image, title, price, rating, add to cart button</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Product Grid / List</td>
+      <td>Multiple product cards arranged in rows and columns</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Deals Section</td>
+      <td>Today's deals with countdown timer and discount badges</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Category Section</td>
+      <td>Icons or images for each product category</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Sidebar / Filters</td>
+      <td>Filter by brand, price range, rating, etc.</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Footer</td>
+      <td>Links, policies, social media icons, copyright</td>
+    </tr>
+  </table>
+
+  <!-- PART 4 -->
+  <h2>4. Component Sketch / Structure</h2>
+  <p>Below is the sketch of Amazon's webpage broken into components:</p>
+
+  <div class="sketch">
+
+    <!-- Header -->
+    <div class="box header">
+      [ HEADER ]  &nbsp; Logo &nbsp;|&nbsp; Search Bar &nbsp;|&nbsp; Sign In &nbsp;|&nbsp; Cart
+    </div>
+
+    <!-- Navbar -->
+    <div class="box nav">
+      [ NAVBAR ]  &nbsp; All &nbsp;|&nbsp; Electronics &nbsp;|&nbsp; Fashion &nbsp;|&nbsp; Home &nbsp;|&nbsp; Books &nbsp;|&nbsp; Deals
+    </div>
+
+    <!-- Hero -->
+    <div class="box hero">
+      [ HERO / BANNER SECTION ] &nbsp; Large sliding banner with offers
+    </div>
+
+    <!-- Category Row -->
+    <div class="box section">
+      [ CATEGORY SECTION ] &nbsp; Electronics &nbsp; | &nbsp; Fashion &nbsp; | &nbsp; Home &nbsp; | &nbsp; Grocery
+    </div>
+
+    <!-- Product Cards -->
+    <div style="margin: 4px 0;">
+      <div class="box card">[ PRODUCT CARD ]<br>Image<br>Title<br>Price<br>Rating<br>Add to Cart</div>
+      <div class="box card">[ PRODUCT CARD ]<br>Image<br>Title<br>Price<br>Rating<br>Add to Cart</div>
+      <div class="box card">[ PRODUCT CARD ]<br>Image<br>Title<br>Price<br>Rating<br>Add to Cart</div>
+    </div>
+
+    <!-- Deals -->
+    <div class="box section" style="margin-top:8px;">
+      [ DEALS SECTION ] &nbsp; Today's Deals | Discount % | Countdown Timer
+    </div>
+
+    <!-- Footer -->
+    <div class="box footer">
+      [ FOOTER ] &nbsp; About &nbsp;|&nbsp; Careers &nbsp;|&nbsp; Privacy Policy &nbsp;|&nbsp; Social Media &nbsp;|&nbsp; &copy; Amazon
+    </div>
+
+  </div>
+
+  <!-- PART 5 -->
+  <h2>5. Conclusion</h2>
+  <p>
+    Breaking a website like Amazon into components shows how modern websites are structured.
+    Each component is independent, reusable, and has its own purpose.
+    In React or any modern framework, each of these components would be a separate file,
+    making the code easy to manage and reuse.
+  </p>
+
+  <footer>
+    Manoj Kumar B &nbsp;|&nbsp; Assignment: Component Hunt &nbsp;|&nbsp; 05/03/2026
+  </footer>
+
+</body>
+</html>
