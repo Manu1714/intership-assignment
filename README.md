@@ -1,4 +1,4 @@
-# 📁 Internship Assignments — Amith K G
+# 📁 Internship Assignments — Manoj kumar B
 
 A complete collection of all frontend and JavaScript assignments submitted during the internship program. Each folder is named and dated for easy navigation.
 
@@ -8,7 +8,7 @@ A complete collection of all frontend and JavaScript assignments submitted durin
 
 | Field       | Info                      |
 |-------------|---------------------------|
-| Name        | Amith K G                 |
+| Name        | Manoj Kumar B                 |
 | Program     | B.Tech CSE                |
 | Company     | Supermentr Full Stack     |
 | Type        | Internship Assignments    |
@@ -129,7 +129,7 @@ INTERSHIP-ASSINGMENT--main/
 
 **Sample Data:**
 ```js
-{ name: "Amith K G",    marks: [85, 90, 78, 92, 88] }
+{ name: "Manoj Kumar B",    marks: [85, 90, 78, 92, 88] }
 { name: "Rahul Kumar",  marks: [70, 65, 80, 75, 72] }
 { name: "Priya Sharma", marks: [95, 98, 92, 97, 99] }
 ```
@@ -296,4 +296,4 @@ node "hello server .js"
 
 ---
 
-*README generated for INTERSHIP-ASSINGMENT--main repository — Amith K G*
+*README generated for INTERSHIP-ASSINGMENT--main repository — Manoj Kumar B*
